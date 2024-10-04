@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=montserrat:400,500,700);
+@import url(https://fonts.bunny.net/css?family=roboto:500,700);
 
 html,
 body,
@@ -131,7 +131,8 @@ a {
 h1,
 h2,
 h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
 }
 img,
 video {
@@ -144,4 +145,10 @@ video {
 *::before,
 *::after {
     box-sizing: border-box;
+}
+*,
+html,
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
 }

@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    padding-left: 28px;
+
+    .img {
+        width: 178px;
+        margin-right: 118px;
+
+        @media screen and (max-width: 1440px) {
+            margin-right: 149px;
+        }
+    }
+
+    .nav {
+        .ul {
+            display: flex;
+            gap: 80px;
+            color: white;
+            font-size: 24px;
+            line-height: 24px;
+            margin-right: 91px;
+
+            @media screen and (max-width: 1440px) {
+                gap: 219px;
+                margin-right: 0;
+            }
+        }
+    }
+}
