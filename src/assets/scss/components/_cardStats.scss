@@ -1,0 +1,91 @@
+.cardStats {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    max-width: 258px;
+    max-height: 124px;
+    width: 258px;
+    height: 124px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+    background-color: #fbfbfb;
+    border-radius: 5px;
+    padding: 32px;
+
+    .iconWrapper {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        overflow: hidden;
+
+        .iconBackground {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.0661;
+
+            &.cal {
+                background: #f00;
+                ~ .icon {
+                    width: 15.8px;
+                    height: 20px;
+                }
+            }
+
+            &.prot {
+                background-color: #4ab8ff;
+                ~ .icon {
+                    width: 18.84px;
+                    height: 18.74px;
+                }
+            }
+
+            &.glu {
+                background-color: #fdcc0c;
+                ~ .icon {
+                    width: 16.81px;
+                    height: 20px;
+                }
+            }
+
+            &.lipi {
+                background-color: #fd5181;
+                ~ .icon {
+                    width: 20px;
+                    height: 18.75px;
+                }
+            }
+        }
+
+        .icon {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .value {
+            color: #282d30;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+        }
+
+        .text {
+            color: #74798c;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+    }
+}
