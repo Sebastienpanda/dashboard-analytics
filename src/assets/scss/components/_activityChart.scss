@@ -1,0 +1,46 @@
+.activity {
+    border-radius: 5px;
+    background: #fbfbfb;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+    max-width: 710px;
+    max-height: 320px;
+    width: 710px;
+    height: 320px;
+    position: relative;
+
+    @media screen and (min-width: 1440px) {
+        max-width: 835px;
+        width: 835px;
+    }
+
+    .h3 {
+        color: #20253a;
+        font-size: 15px;
+        line-height: 24px;
+        position: absolute;
+        left: 32px;
+        top: 24px;
+    }
+
+    .toolTip {
+        display: block !important;
+        background-color: #e60000;
+        padding: 11px 6px;
+        line-height: 24px;
+        color: #fff;
+        text-align: center;
+        font-size: 7px;
+    }
+
+    .custom-legend {
+        display: flex;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        gap: 32px;
+        color: #74798c;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+}
