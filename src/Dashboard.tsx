@@ -1,5 +1,6 @@
 import Aside from "./components/Aside";
 import Header from "./components/Header";
+import Main from "./components/Main";
 
 function Dashboard() {
     return (
@@ -11,7 +12,9 @@ function Dashboard() {
                 <div className="asideDiv">
                     <Aside />
                 </div>
-                <div className="main">3</div>
+                <div className="mainDiv">
+                    <Main />
+                </div>
             </div>
         </>
     );
