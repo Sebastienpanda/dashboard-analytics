@@ -4,9 +4,9 @@ import chicken from "../assets/icons/chicken.svg";
 import fire from "../assets/icons/energy.svg";
 import CardStats from "./CardStats";
 import BarCharts from "./charts/activity/ActivityChart";
-import AverageSession from "./charts/AverageSession";
-import GoalCharts from "./charts/GoalCharts";
-import PieCharts from "./charts/PieCharts";
+import GoalCharts from "./charts/goal/GoalCharts";
+import PieCharts from "./charts/pie/PieCharts";
+import AverageSession from "./charts/sessions/AverageSession";
 
 export default function Main() {
     return (

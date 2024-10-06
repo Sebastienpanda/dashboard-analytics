@@ -1,6 +1,8 @@
 @use "../components/cardStats";
-@use "../components/pieChart";
-@use "../components/activityChart";
+@use "../components/charts/pie/pieChart";
+@use "../components/charts/activity/activityChart";
+@use "../components//charts/session/session";
+@use "../components/charts/goal/goal";
 
 .main {
     margin-top: 68px;

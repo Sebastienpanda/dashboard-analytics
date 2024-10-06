@@ -1,0 +1,48 @@
+.goal {
+    border-radius: 5px;
+    background: #fbfbfb;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+    position: relative;
+    max-height: 263px;
+    height: 263px;
+
+    .title {
+        color: #20253a;
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 24px;
+
+        @media screen and (min-width: 1200px) {
+            top: 24px;
+            left: 30px;
+        }
+    }
+
+    .legend {
+        color: #74798c;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        margin-top: 20px;
+
+        @media screen and (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .percentage {
+            color: #20253a;
+            font-size: 20px;
+            font-weight: 700;
+
+            @media screen and (min-width: 1200px) {
+                font-size: 26px;
+            }
+        }
+    }
+}

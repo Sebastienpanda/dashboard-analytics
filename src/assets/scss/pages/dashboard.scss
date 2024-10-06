@@ -1,5 +1,6 @@
 @use "../components/header";
 @use "../components/aside";
+@use "../components/main";
 
 .parent {
     display: grid;
@@ -25,7 +26,7 @@
     width: 117px;
 }
 
-.main {
+.mainDiv {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
 }

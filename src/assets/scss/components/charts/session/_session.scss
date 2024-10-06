@@ -1,0 +1,30 @@
+.averageSessions {
+    position: relative;
+    overflow: hidden;
+    height: 263px;
+
+    .title {
+        color: #fff;
+        width: 147px;
+        position: absolute;
+        top: 29px;
+        left: 34px;
+        opacity: 0.6;
+        font-size: 15px;
+        line-height: 24px;
+
+        @media screen and (min-width: 1200px) {
+            top: 30px;
+            left: 30px;
+        }
+    }
+    .customTooltip {
+        background-color: #fff;
+        width: 40px;
+        height: 25px;
+        font-size: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

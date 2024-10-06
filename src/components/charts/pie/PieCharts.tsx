@@ -1,5 +1,5 @@
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, Tooltip } from "recharts";
-import { RenderCustomTickPieCharts } from "./renderCustomTickPieCharts";
+import { RenderCustomTickPieCharts } from "./renderCustomTickPie";
 
 const data = [
     {
