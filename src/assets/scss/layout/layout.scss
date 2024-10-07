@@ -1,0 +1,37 @@
+@use "../components/header";
+@use "../components/aside";
+@use "../components/main";
+@use "../components/container";
+
+.parent {
+    display: grid;
+    grid-template-columns: 117px 1fr;
+    grid-template-rows: 91px 1fr;
+    height: 100vh;
+}
+
+.headerDiv,
+.asideDiv {
+    background-color: #020203;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.headerDiv {
+    grid-column: 1 / span 2;
+
+    height: 91px;
+}
+
+.asideDiv {
+    grid-row: 2 / span 1;
+    width: 117px;
+}
+
+.mainDiv {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+}
+
+.main {
+    margin-top: 68px;
+}

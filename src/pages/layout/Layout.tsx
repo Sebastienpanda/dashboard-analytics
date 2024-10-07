@@ -1,8 +1,9 @@
-import Aside from "./components/Aside";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import Aside from "../../components/Aside";
+import Header from "../../components/Header";
 
-function Dashboard() {
+import { ReactNode } from "react";
+
+export default function Layout({ children }: { children: ReactNode }) {
     return (
         <>
             <div className="parent">
@@ -12,12 +13,8 @@ function Dashboard() {
                 <div className="asideDiv">
                     <Aside />
                 </div>
-                <div className="mainDiv">
-                    <Main />
-                </div>
+                <div className="mainDiv">{children}</div>
             </div>
         </>
     );
 }
-
-export default Dashboard;

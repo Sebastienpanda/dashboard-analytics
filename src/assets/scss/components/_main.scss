@@ -4,9 +4,7 @@
 @use "../components//charts/session/session";
 @use "../components/charts/goal/goal";
 
-.main {
-    margin-top: 68px;
-
+#dashboard {
     .top {
         display: flex;
         flex-direction: column;
