@@ -1,43 +1,21 @@
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 
+import { useParams } from "react-router-dom";
+import { GetUserSession } from "../../../services/users/getUserSession";
 import { CustomCursor } from "./CustomCursor";
 import { CustomTick } from "./CustomTick";
 import { CustomTooltip } from "./CustomToolTip";
 
 export default function AverageSession() {
-    const averageData = [
-        {
-            day: 1,
-            sessionLength: 30,
-        },
-        {
-            day: 2,
-            sessionLength: 23,
-        },
-        {
-            day: 3,
-            sessionLength: 45,
-        },
-        {
-            day: 4,
-            sessionLength: 50,
-        },
-        {
-            day: 5,
-            sessionLength: 0,
-        },
-        {
-            day: 6,
-            sessionLength: 0,
-        },
-        {
-            day: 7,
-            sessionLength: 60,
-        },
-    ];
+    const params = useParams<{ id: string }>();
+    const { userSession, loading, error } = GetUserSession(parseInt(params.id || "0", 10));
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+    if (!userSession) return <div>User session not found</div>;
 
     const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
-    const formattedData = averageData.map((session, index) => ({
+    const formattedData = userSession.sessions.map((session, index) => ({
         day: weekDays[index],
         sessionLength: session.sessionLength,
     }));

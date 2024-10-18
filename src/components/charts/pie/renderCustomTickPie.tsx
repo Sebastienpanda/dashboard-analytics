@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type PayloadValue = "Endurance" | "Intensité" | "Cardio" | "Energie" | "Vitesse" | "Force";
+type PayloadValue = "Endurance" | "Intensity" | "Cardio" | "Energy" | "Speed" | "Strength";
 
 interface Payload {
     value: PayloadValue;
@@ -16,29 +16,29 @@ export function RenderCustomTickPieCharts(props: Props) {
     const { x, y, payload } = props;
     const [dxValues, setDxValues] = useState({
         Endurance: 0,
-        Intensité: 0,
+        Intensity: 0,
         Cardio: -19,
-        Energie: -19,
-        Vitesse: 8,
-        Force: 8,
+        Energy: -19,
+        Speed: 8,
+        Strength: 8,
     });
     const [dyValues, setDyValues] = useState({
         Endurance: 14,
-        Intensité: -10,
+        Intensity: -10,
         Cardio: 0,
-        Energie: 0,
-        Vitesse: 0,
-        Force: 0,
+        Energy: 0,
+        Speed: 0,
+        Strength: 0,
     });
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 1024) {
-                setDxValues({ Endurance: 0, Intensité: 0, Cardio: -6, Energie: -6, Vitesse: 5, Force: 5 });
-                setDyValues({ Endurance: 16, Intensité: -5, Cardio: 0, Energie: 0, Vitesse: 0, Force: 0 });
+                setDxValues({ Endurance: -4, Intensity: 0, Cardio: 0, Energy: 6, Speed: -6, Strength: 0 });
+                setDyValues({ Endurance: 25, Intensity: -15, Cardio: -6, Energy: -8, Speed: 16, Strength: 12 });
             } else {
-                setDxValues({ Endurance: 0, Intensité: 0, Cardio: -19, Energie: -19, Vitesse: 8, Force: 8 });
-                setDyValues({ Endurance: 16, Intensité: -10, Cardio: 0, Energie: 0, Vitesse: 0, Force: 0 });
+                setDxValues({ Endurance: 8, Intensity: -16, Cardio: 0, Energy: 16, Speed: -16, Strength: 0 });
+                setDyValues({ Endurance: 24, Intensity: -10, Cardio: -6, Energy: 0, Speed: 10, Strength: 12 });
             }
         };
 

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { UserInfo } from "../types/User";
 import useFetch from "./useFetch";
 
-export function useUser(id: number): { user: UserInfo | null; loading: boolean; error: string | null } {
+export function useActivity(id: number): { user: UserInfo | null; loading: boolean; error: string | null } {
     const [user, setUser] = useState<UserInfo | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    const { data, loading: fetchLoading, error: fetchError } = useFetch(`/${id}`);
+    const { data, loading: fetchLoading, error: fetchError } = useFetch(`/user/${id}/activity`);
 
     useEffect(() => {
         if (!fetchLoading && !fetchError) {

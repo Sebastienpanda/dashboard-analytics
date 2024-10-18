@@ -1,26 +1,11 @@
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { UserInfo } from "../../../types/User";
 import { CustomizedLegend } from "./CustomLegend";
-
-const data = {
-    id: 18,
-    userInfos: {
-        firstName: "Cecilia",
-        lastName: "Ratorez",
-        age: 34,
-    },
-    score: 0.9,
-    keyData: {
-        calorieCount: 2500,
-        proteinCount: 90,
-        carbohydrateCount: 150,
-        lipidCount: 120,
-    },
-};
 
 const COLORS = ["#FF0000", "transparent"];
 
-export default function GoalCharts() {
-    const progression = data.score;
+export default function GoalCharts({ user }: { user: UserInfo }) {
+    const progression = user.score;
     const remainsToBeDone = 1 - progression;
 
     const dataGoal = [

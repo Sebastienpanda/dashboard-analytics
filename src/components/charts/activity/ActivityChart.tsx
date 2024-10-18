@@ -1,29 +1,31 @@
+import { useParams } from "react-router-dom";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { GetUserActivity } from "../../../services/users/getUserActivity";
+import { formatDate } from "../../../utils/formatedData";
 import { CustomLegend } from "./CustomLegend";
 import { CustomToolTip } from "./CustomToolTip";
 
-const data = [
-    { day: "1", poids: 30, calories: 200, kilograms: 69 },
-    { day: "2", poids: 45, calories: 250, kilograms: 69 },
-    { day: "3", poids: 50, calories: 300, kilograms: 69 },
-    { day: "4", poids: 60, calories: 350, kilograms: 70 },
-    { day: "5", poids: 70, calories: 400, kilograms: 70 },
-    { day: "6", poids: 80, calories: 450, kilograms: 69 },
-    { day: "7", poids: 90, calories: 500, kilograms: 69 },
-    { day: "8", poids: 100, calories: 550, kilograms: 69 },
-    { day: "9", poids: 110, calories: 600, kilograms: 69 },
-    { day: "10", poids: 120, calories: 650, kilograms: 69 },
-];
-
 export default function BarCharts() {
+    const params = useParams<{ id: string }>();
+    const { userActivity, loading, error } = GetUserActivity(parseInt(params.id || "0", 10));
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+    if (!userActivity) return <div>User activity not found</div>;
+
     const payload = [
         { color: "#282D30", value: "Poids (kg)" },
         { color: "#E60000", value: "Calories brûlées (kCal)" },
     ];
 
+    const formattedData = userActivity.sessions.map((session) => ({
+        ...session,
+        day: formatDate(session.day),
+    }));
+
     return (
         <ResponsiveContainer width="99%" aspect={3}>
-            <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <BarChart data={formattedData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3" vertical={false} />
                 <XAxis
                     dataKey="day"
@@ -34,7 +36,7 @@ export default function BarCharts() {
                     tickMargin={8}
                 />
                 <YAxis
-                    yAxisId="kilograms"
+                    yAxisId="kilogram"
                     orientation="right"
                     tickMargin={30}
                     tick={{ fill: "#9B9EAC" }}
@@ -47,8 +49,8 @@ export default function BarCharts() {
                 <Tooltip content={<CustomToolTip />} cursor={{ fill: "rgba(196, 196, 196, 0.5)" }} />
                 <Bar
                     name={payload[0].value}
-                    dataKey="kilograms"
-                    yAxisId="kilograms"
+                    dataKey="kilogram"
+                    yAxisId="kilogram"
                     fill="#282D30"
                     radius={[3, 3, 0, 0]}
                     barSize={7}

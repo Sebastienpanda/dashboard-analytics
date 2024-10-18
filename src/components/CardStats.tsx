@@ -1,6 +1,6 @@
 type CardStatsProps = {
     icon: string;
-    value: string;
+    value: number;
     text: string;
     unit?: "kCal" | "g";
 };

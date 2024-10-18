@@ -1,6 +1,6 @@
-import { User } from "../../types/User";
+import { UserInfo } from "../../types/User";
 
-export default function HeaderDashboard({ user }: { user: User }) {
+export default function HeaderDashboard({ user }: { user: UserInfo }) {
     return (
         <>
             <h1 className="h1">

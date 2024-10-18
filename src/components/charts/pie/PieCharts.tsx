@@ -1,52 +1,37 @@
+import { useParams } from "react-router-dom";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, Tooltip } from "recharts";
+import { GetUserPerformance } from "../../../services/users/getUserPerformance";
+import { UserInfo } from "../../../types/User";
 import { RenderCustomTickPieCharts } from "./renderCustomTickPie";
 
-const data = [
-    {
-        subject: "Intensité",
-        A: 120,
-        B: 110,
-        fullMark: 150,
-    },
-    {
-        subject: "Vitesse",
-        A: 98,
-        B: 130,
-        fullMark: 150,
-    },
-    {
-        subject: "Force",
-        A: 86,
-        B: 130,
-        fullMark: 150,
-    },
-    {
-        subject: "Endurance",
-        A: 99,
-        B: 100,
-        fullMark: 150,
-    },
-    {
-        subject: "Energie",
-        A: 85,
-        B: 90,
-        fullMark: 150,
-    },
-    {
-        subject: "Cardio",
-        A: 65,
-        B: 85,
-        fullMark: 150,
-    },
-];
+export default function PieCharts({ user }: { user: UserInfo }) {
+    const params = useParams<{ id: string }>();
+    const { userPerformance, loading, error } = GetUserPerformance(parseInt(params.id || "0", 10));
 
-export default function PieCharts() {
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+    if (!userPerformance) return <div>User performance not found</div>;
+
+    const kindMapping: { [key: number]: string } = {
+        1: "Cardio",
+        2: "Energy",
+        3: "Endurance",
+        4: "Strength",
+        5: "Speed",
+        6: "Intensity",
+    };
+
+    const formattedData = userPerformance.data.map((item) => ({
+        subject: kindMapping[item.kind],
+        A: item.value,
+    }));
+
     return (
         <ResponsiveContainer width="100%" height="100%" maxHeight={180} minWidth={180} minHeight={180}>
-            <RadarChart cx="50%" cy="74%" outerRadius="100%" data={data}>
+            <RadarChart cx="50%" cy="74%" outerRadius="100%" data={formattedData}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" tick={(props) => <RenderCustomTickPieCharts {...props} />} />
-                <Radar name="Thomas" dataKey="A" fill="rgba(255, 1, 1, 0.70)" />
+                <Radar name={user.userInfos.firstName} dataKey="A" fill="rgba(255, 1, 1, 0.70)" />
                 <Tooltip />
             </RadarChart>
         </ResponsiveContainer>

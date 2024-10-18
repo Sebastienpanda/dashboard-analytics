@@ -1,13 +1,12 @@
-import useFetch from "../hooks/useFetch";
-import { User } from "../types/User";
+import useFetch from "../../hooks/useFetch";
+import { UserInfo } from "../../types/User";
 
 export function GetUserById(id: number): {
-    user: User | null;
+    user: UserInfo | null;
     loading: boolean;
     error: string;
 } {
     const { data, loading, error } = useFetch(`/${id}`);
-    console.log(data);
 
     return { user: data, loading, error: error as string };
 }
